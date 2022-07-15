@@ -1,0 +1,158 @@
+视频链接：
+主题: 1.AS简介
+日期: 2022-07-09 09:00:39
+录制文件：https://meeting.tencent.com/v2/cloud-record/share?id=f11ece29-10db-445c-bc8c-3bd2004863a8&from=3
+
+主题: 2.实现点击功能
+日期: 2022-07-09 14:32:22
+录制文件：https://meeting.tencent.com/v2/cloud-record/share?id=031e5fe6-44a1-4756-a5a1-0919734ade06&from=3
+
+
+
+class MainActivity : AppCompatActivity() {
+
+
+    //onCreate 创建UI
+    override fun onCreate(savedInstanceState: Bundle?) {
+        //需要父类的实现
+        super.onCreate(savedInstanceState)
+        //我自己的实现
+        setContentView(R.layout.activity_main)
+
+        //找到textView
+        val headTextView = findViewById<TextView>(R.id.textView)
+        //找到按钮
+        val button = findViewById<Button>(R.id.button)
+        
+        //给按钮添加点击事件
+        //button.setOnClickListener(MyListender())
+        //button.setOnClickListener(this)
+        //第三种方法 匿名内部类
+        /*button.setOnClickListener(object:View.OnClickListener{
+            override fun onClick(p0: View?) {
+                headTextView.text = "走向大神之路"
+            }
+        })*/
+        /*button.setOnClickListener({
+            headTextView.text = "走向大神之路"
+        })*/
+        button.setOnClickListener{
+            headTextView.text = "走向大神之路"
+        }
+    }
+
+    /*//第一种方法 用一个独立的类来实现这个接口
+    inner class MyListender: View.OnClickListener{
+        override fun onClick(p0: View?) {
+            //改变文本内容
+            headTextView.text = "走向大神之路"
+        }
+    }
+
+    //第二种方法
+    override fun onClick(p0: View?) {
+        //改变文本内容
+        headTextView.text = "走向大神之路"
+    }*/
+
+}
+
+东哥pxd 2022/7/9 17:52:15
+Activity ： 应用界面
+
+MainActivity 主界面：应用程序加载起来的第一个界面
+
+manifests： 清单文件
+            配置文件(主界面，应用的名称，应用的图标，横竖屏，权限）
+
+如何更改应用的Icon图标
+    res 资源文件夹（图片 文字 界面布局 主题样式 字体）
+    访问资源文件 使用@开头  @mipmap/dog.png
+
+如何更改应用的名称
+    res -> values -> strings -> app_name
+
+设置多国语言支持
+    strings -> open editer -> 点击 地球+  -> 选择国家/语言 -> 把对应的翻译成其他语言
+
+如何添加虚拟机设备（强烈建议使用自己的手机 流畅）
+    1.右上角device manager
+    2.create device
+    3.选择设备
+    4.选择对应的Android版本 (建议最新）
+    5.download
+
+如何设置某个类是一个界面
+    让这个类继承于 AppCompatActivity
+
+界面有自己的加载流程
+    1.创建界面(样子) onCreate 告诉界面自己显示什么控件
+    2.加载界面
+    3.和用户交互
+    4.被暂停
+    5.恢复界面
+    6.销毁界面
+
+实现一个界面分成多个模块
+    1.界面布局
+        res -> layout -> xxx.xml
+    2.代码逻辑
+        java -> package -> xxActivity
+    3.动画资源
+        res -> anim -> xxxx.xml
+
+UI和逻辑
+    jetpack compose
+
+实现简单Demo的过程
+    1.在layout布局文件中 设置自己的界面
+        图片：ImageView
+        文字：TextView
+        按钮：Button
+
+        容器：容纳其他子控件的控件 ViewGroup
+            控件==视图：View
+
+            自己的图片资源放到res->drawable目录 @drawable/head
+
+            layout_width/height: 设置宽高
+                wrap_content 包裹内容
+                match_parent 匹配父容器
+                0dp          看约束（约束布局）
+                200dp        固定的尺寸
+
+            左left 上top 右riht 下bottom
+            起始start  上top  结束end 下bottom
+
+            确定一个控件在容器中的位置由（x,y,width,height)决定
+
+            外间距：margin
+            内间距：padding
+
+    2.实现逻辑
+        代码在MainActivity中  界面在xml中
+            使用findViewById查找xml中的控件
+        给按钮添加点击事件
+
+如果程序出错->Logcat查看输出日志->error
+
+Android开发老版本
+    基础 高级控件会使用
+    动画
+    如何自定义View
+    绘制
+    Jetpack套装 导航 Room ViewModel LifeCycle LiveData
+    三方库 网络
+    写一个3-4天完成的项目
+Jetpack Compose
+
+布局：
+    FrameLayout
+    LinearLayout
+    RelativeLayout
+    消消乐
+    点击事件
+    类的定义
+
+
+
